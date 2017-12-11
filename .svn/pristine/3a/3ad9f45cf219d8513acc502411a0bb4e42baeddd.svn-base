@@ -1,0 +1,29 @@
+package com.jcxa.safe.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.jcxa.safe.entity.Basic;
+import com.jcxa.safe.entity.Vulner;
+import com.jcxa.safe.entity.vulnerability;
+
+public interface BasicDao {
+
+	public List<Basic> getBasic();
+	public List<Vulner> getVulner();
+	
+	public Basic getBasById(Integer id);
+	public String getBasvulById(Integer id);
+	public void addBasic(Basic basic);
+	
+	public void addvuls(@Param("vuls")List<vulnerability> vuls);
+	
+	public void addvulner(Vulner vulner);
+	
+	public void updateBas(Basic basic);
+	
+	public void deleteBasById(Integer id);
+	
+	
+}

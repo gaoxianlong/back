@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.stk.dao.BackSeriesDao">
+<!-- MP3 -->
+	<select id="selseriesmp" resultType="Series">
+		select * from mpseries order by ID desc
+	</select>
+	<insert id="addseriesmp" parameterType="Series">
+		insert into
+		mpseries(TypeValue,Type2Value,Type3Value,Title,PicURL,Remark,
+		RealPrice,PublishTime,ta,tb,tc,writer,IsPrice,fupin,publi)
+		values
+		(#{TypeValue},#{Type2Value},#{Type3Value},#{Title},#{PicURL},
+		#{Remark},#{RealPrice},#{PublishTime},#{ta},#{tb},#{tc},#{writer},#{IsPrice},#{fupin},#{publi})
+	</insert>
+	
+	<update id="upseriesmp" parameterType="Seriesmp">
+		update mpseries set
+		Title=#{Title},PicURL=#{PicURL},Remark=#{Remark},
+		IsPrice=#{IsPrice},RealPrice=#{RealPrice},
+		fupin=#{fupin},publi=#{publi},Collection=#{Collection},ClickRate=#{ClickRate},PmtsTot=#{PmtsTot},writer=#{writer}
+		where ID=#{ID}
+	</update>
+	
+	<delete id="backdeletemp"> delete from mpseries where
+		ID=#{id}
+	</delete>
+	
+	<select id="selseriesbyidmp" resultType="Seriesmp">
+		select * from mpseries where
+		ID=#{id}
+	</select>
+	
+	<select id="selmpcount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		SELECT count(*) FROM mpseriesvideo WHERE SID = #{id}
+	</select>
+<!-- MP3 -->
+	<select id="selseriesbyid" resultType="Series">
+		select * from series where
+		ID=#{id}
+	</select>
+
+	<select id="selseries" resultType="Series">
+		select * from series where
+		TypeValue=#{id} order by ID desc
+	</select>
+
+	<insert id="addseries" parameterType="Series">
+		insert into
+		series(TypeValue,Type2Value,Type3Value,Title,PicURL,Remark,IsPrice,
+		RealPrice,fupin,publi,PublishTime,ta,tb,tc,ThuPicURL)
+		values
+		(#{TypeValue},#{Type2Value},#{Type3Value},#{Title},#{PicURL},
+		#{Remark},#{IsPrice},#{RealPrice},#{fupin},#{publi},#{PublishTime},#{ta},#{tb},#{tc},#{ThuPicURL})
+	</insert>
+
+	<update id="upseries" parameterType="Series">
+		update series set
+		Title=#{Title},PicURL=#{PicURL},Remark=#{Remark},
+		IsPrice=#{IsPrice},RealPrice=#{RealPrice},
+		fupin=#{fupin},publi=#{publi},Collection=#{Collection},ClickRate=#{ClickRate},PmtsTot=#{PmtsTot},ThuPicURL=#{ThuPicURL}
+		where ID=#{ID}
+	</update>
+
+	<delete id="backdelete"> delete from series where
+		ID=#{id}
+	</delete>
+	
+	<select id="selvideocount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		SELECT count(*) FROM seriesvideo WHERE SID = #{id}
+	</select>
+	
+</mapper>

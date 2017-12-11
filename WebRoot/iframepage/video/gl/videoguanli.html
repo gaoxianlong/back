@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>列表</title>
+<meta http-equiv="content-type" content="text/htm" charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta mame="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="shoutike" />
+<meta name="description" content="shoutike" />
+<link rel="stylesheet" type="text/css" href="../../../content/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../css/iframepage/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/iframepage/first.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/iframepage/video.css"/>
+
+</head>
+<body>
+<div style="padding: 5px 5px 0 5px;width: 100%;height: 100%;">
+	<div class="first-head">
+		<!--<a href="javascript:;" id="add"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 新增</a>-->
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myaddModal"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 
+   新增
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytxtModal"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 
+   编辑
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myxqModal"><span class="glyphicon glyphicon-list-alt"  style="color: #333;"></span> 
+   详情
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mydelModal"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 
+   删除
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mybfModal"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 
+   修改播放
+</button>
+	</div>
+	<div class="first-main">
+		<div class="first-body">
+			<table width="100%" cellspacing="" cellpadding="" border="0" id="tab">
+			    <thead>
+			        <tr>
+			            <th>编号</th>
+			            <th>标题</th>
+			            <th>文件名</th>
+			            <th>视频时长</th>
+			            <th>发布时间</th>
+			            <th>讲师</th>
+			            <th>播放数</th>
+			            <th>点赞数</th>
+			            <th>排序</th>
+			            <th>是否有效</th>
+			            <th>是否收费</th>
+			            <th>更新人</th>
+			            <th>更新时间</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    	<tr>
+			    		<td>1</td>
+			    		<td>第一季 第1集</td>
+			    		<td>第一讲 作文（1）</td>
+			    		<td>09:08</td>
+			    		<td>2016-10-16 21:05</td>
+			    		<td>赵宝琴</td>
+			    		<td>138</td>
+			    		<td>2</td>
+			    		<td>1</td>
+			    		<td>有效</td>
+			    		<td>不收费</td>
+			    		<td>手提课</td>
+			    		<td>2016-10-16 21:05</td>
+			    	</tr>
+			    	<tr>
+			    		<td>1</td>
+			    		<td>第一季 第2集</td>
+			    		<td>第一讲 作文（2）</td>
+			    		<td>09:08</td>
+			    		<td>2016-10-16 21:25</td>
+			    		<td>赵宝琴</td>
+			    		<td>155</td>
+			    		<td>5</td>
+			    		<td>1</td>
+			    		<td>有效</td>
+			    		<td>不收费</td>
+			    		<td>手提课</td>
+			    		<td>2016-10-16 21:25</td>
+			    	</tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- addModal -->
+<div class="modal fade" id="myaddModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 新增</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+                    <div class="lis title">
+                   	   <span>标题：</span>
+                   	   <input type="text" />
+                    </div>
+                    <div class="lis title">
+                   	   <span>视频文件：</span>
+                   	   <input type="hidden" name="" id="" value="" />
+                   	   <!--<input type="text" name="" id="" value="" readonly="readonly" />-->
+                   	   <input type="file" />
+                    </div>
+                    <div class="lis js">
+                    	<span>讲师：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis spsc">
+                    	<span>视频时长：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis yxx">
+                    	<span>是否有效：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfyx">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfsf">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- txtModal -->
+<div class="modal fade" id="mytxtModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 编辑</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+                    <div class="lis title">
+                   	   <span>标题：</span>
+                   	   <input type="text" />
+                    </div>
+                    <div class="lis title">
+                   	   <span>视频文件：</span>
+                   	   <input type="hidden" name="" id="" value="" />
+                   	   <input type="file" />
+                    </div>
+                    <div class="lis js">
+                    	<span>讲师：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis spsc">
+                    	<span>视频时长：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis yxx">
+                    	<span>是否有效：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfyx">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfsf">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- xqModal -->
+<div class="modal fade" id="myxqModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-list-alt"  style="color: #333;"></span> 详情</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+                    <div class="lis title">
+                   	   <span>标题：</span>
+                   	   <input type="text" />
+                    </div>
+                    <div class="lis title">
+                   	   <span>视频文件：</span>
+                   	   <input type="hidden" name="" id="" value="" />
+                   	   <input type="file" />
+                    </div>
+                    <div class="lis js">
+                    	<span>讲师：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis spsc">
+                    	<span>视频时长：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis yxx">
+                    	<span>是否有效：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfyx">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfsf">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- delModal -->
+<div class="modal fade" id="mydelModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 删除</h4>
+			</div>
+			<div class="modal-body">
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary">确定</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<!--未选中操作数据时的 拦截信息-->
+<!-- 修改播放 -->
+<div class="modal fade" id="mybfModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 修改</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+					<div class="lis title">
+                    	<span>标题：</span>
+                    	<b>初中语文。。。</b>
+                    </div>
+                    <div class="lis chs">
+                    	<span>播放数：</span>
+                    	<input type="text" />
+                    </div>
+                    
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../../../jscript/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="../../../jscript/bootstrap.min.js" ></script>
+<script type="text/javascript" src="../../../js/iframepage/public.js"></script>
+<script type="text/javascript" src="../../../js/iframepage/first.js"></script>

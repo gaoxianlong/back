@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>列表</title>
+<meta http-equiv="content-type" content="text/htm" charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta mame="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="shoutike" />
+<meta name="description" content="shoutike" />
+<link rel="stylesheet" type="text/css" href="../../content/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/iframepage/public.css"/>
+</head>
+<body>
+<div style="padding: 5px 5px 0 5px;width: 100%;height: 100%;">
+	<div class="first-head">
+		<!--<a href="javascript:;" id="add"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 新增</a>-->
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myaddModal"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 
+   新增
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytxtModal"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 
+   编辑
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myxqModal"><span class="glyphicon glyphicon-list-alt"  style="color: #333;"></span> 
+   详情
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mydelModal"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 
+   删除
+</button>
+		
+	</div>
+	<div class="first-main">
+		<div class="first-body">
+			<table width="100%" cellspacing="" cellpadding="" border="0" id="tab">
+			    <thead>
+			        <tr>
+			            <th>编号</th>
+			            <th>分类</th>
+			            <th>分类</th>
+			            <th>视频名称</th>
+			            <th>排序</th>
+			            <th>是否有效</th>
+			            <th>更新时间</th>
+			            <th>更新人</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    	<tr>
+			    		<td>1</td>
+			    		<td>系列</td>
+			    		<td>高中-高三-政治</td>
+			    		<td>考研专业课</td>
+			    		<td>1</td>
+			    		<td>是</td>
+			    		<td>2017-08-15 12:33</td>
+			    		<td>手提课</td>
+			    	</tr>
+			    	<tr>
+			    		<td>2</td>
+			    		<td>系列</td>
+			    		<td>高中-高二-英语</td>
+			    		<td>考研专业课</td>
+			    		<td>2</td>
+			    		<td>是</td>
+			    		<td>2017-08-15 12:33</td>
+			    		<td>手提课</td>
+			    	</tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- addModal -->
+<div class="modal fade" id="myaddModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 新增</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+                   
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- txtModal -->
+<div class="modal fade" id="mytxtModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 编辑</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4">.col-md-4</div>
+					<div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+					<div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-9">
+						Level 1: .col-sm-9
+						<div class="row">
+							<div class="col-xs-8 col-sm-6">
+								Level 2: .col-xs-8 .col-sm-6
+							</div>
+							<div class="col-xs-4 col-sm-6">
+								Level 2: .col-xs-4 .col-sm-6
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- xqModal -->
+<div class="modal fade" id="myxqModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-list-alt"  style="color: #333;"></span> 详情</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4">.col-md-4</div>
+					<div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+					<div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-9">
+						Level 1: .col-sm-9
+						<div class="row">
+							<div class="col-xs-8 col-sm-6">
+								Level 2: .col-xs-8 .col-sm-6
+							</div>
+							<div class="col-xs-4 col-sm-6">
+								Level 2: .col-xs-4 .col-sm-6
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- delModal -->
+<div class="modal fade" id="mydelModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 删除</h4>
+			</div>
+			<div class="modal-body">
+                                                 您确定要删除当前课程吗？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">确定</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<!--未选中操作数据时的 拦截信息 未用 -->
+<!-- Small modal -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    <h4 class="modal-title" id="myModalLabel">提示</h4>
+		</div>
+		<div class="modal-body">
+		            请选择要操作的记录
+		</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jscript/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="../../jscript/bootstrap.min.js" ></script>
+<script type="text/javascript" src="../../js/iframepage/public.js"></script>
+<script type="text/javascript">
+//调用父页面的切换 导航和内容方法
+parent.tabspage($('#nav-ol .lis',window.parent.document),$('#tabs-wrap .panel-page',window.parent.document));
+parent.navclose($('#nav-ol .lis',window.parent.document),$('#tabs-wrap .panel-page',window.parent.document));
+
+</script>

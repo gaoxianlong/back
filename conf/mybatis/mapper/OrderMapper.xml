@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.stk.dao.OrderDao">
+
+     <select id="selordervip" resultMap="ordervip">
+          select * from wxorder vp join tuser u on vp.uid=u.ID
+     </select>
+     <resultMap type="Wxorder" id="ordervip">
+         <id property="id" column="id"/>
+         <result property="vipsort" column="vipsort"/>
+         <result property="price" column="price"/>
+         <result property="outtradeno" column="outtradeno"/>
+         <result property="createTime" column="createTime"/>
+         <result property="overtime" column="overtime"/>
+         <association property="uid" javaType="Users">
+             <id property="ID" column="ID"/>
+             <id property="NickName" column="NickName"/>
+             <result property="Telephone" column="Telephone"/>
+         </association>
+     </resultMap>
+     
+     <select id="selorderk" resultMap="orderk">
+          select * from torder tr join tuser u on tr.UserID=u.ID
+     </select>
+     <resultMap type="Order" id="orderk">
+         <id property="ID" column="ID"/>
+         <result property="SeriesID" column="SeriesID"/>
+         <result property="Price" column="Price"/>
+         <result property="outtradeno" column="outtradeno"/>
+         <result property="CreateTime" column="CreateTime"/>
+         <result property="overtime" column="overtime"/>
+         <association property="uid" javaType="Users">
+             <id property="ID" column="ID"/>
+             <id property="NickName" column="NickName"/>
+             <result property="Telephone" column="Telephone"/>
+         </association>
+     </resultMap>
+	
+</mapper>

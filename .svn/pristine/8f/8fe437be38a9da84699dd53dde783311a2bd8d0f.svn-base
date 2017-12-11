@@ -1,0 +1,18 @@
+package com.jcxa.safe.dao;
+
+import java.util.List;
+
+import com.jcxa.safe.entity.Basic;
+
+public interface BasicDao {
+
+	public List<Basic> getBasic();
+	
+	public Basic getBasById(Integer id);
+	
+	public void addBasic(Basic basic);
+	
+	public void updateBas(Basic basic);
+	
+	public void deleteBasById(Integer id);
+}

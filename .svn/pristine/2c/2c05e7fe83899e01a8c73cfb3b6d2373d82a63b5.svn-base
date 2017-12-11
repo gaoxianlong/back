@@ -1,0 +1,58 @@
+package com.jcxa.safe.entity;
+
+public class Basic {
+
+	private int id;
+	private String realName;
+	private String ip;
+	private String system;
+	private String server;
+	private String softver;
+	private String vulner;
+	
+	
+	public String getVulner() {
+		return vulner;
+	}
+	public void setVulner(String vulner) {
+		this.vulner = vulner;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getRealName() {
+		return realName;
+	}
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public String getSystem() {
+		return system;
+	}
+	public void setSystem(String system) {
+		this.system = system;
+	}
+	public String getServer() {
+		return server;
+	}
+	public void setServer(String server) {
+		this.server = server;
+	}
+	public String getSoftver() {
+		return softver;
+	}
+	public void setSoftver(String softver) {
+		this.softver = softver;
+	}
+	
+	
+}

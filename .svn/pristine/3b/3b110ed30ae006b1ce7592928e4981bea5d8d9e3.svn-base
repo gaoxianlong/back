@@ -1,0 +1,53 @@
+package com.jcxa.safe.entity;
+
+public class vulnerability {
+	private int id;
+	private String name;
+	private String sort;
+	private String degree;
+	private String suggest;
+	private int basiid;
+	
+	
+	
+	public int getBasiid() {
+		return basiid;
+	}
+	public void setBasiid(int basiid) {
+		this.basiid = basiid;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	public String getDegree() {
+		return degree;
+	}
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
+	public String getSuggest() {
+		return suggest;
+	}
+	public void setSuggest(String suggest) {
+		this.suggest = suggest;
+	}
+	
+	
+	
+
+}

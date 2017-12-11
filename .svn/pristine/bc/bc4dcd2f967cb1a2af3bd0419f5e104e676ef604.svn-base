@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.BasicDao">
+
+
+	<select id="getBasic" resultType="Basic">
+		select * from basic
+
+	</select>
+	
+	<select id="getVulner" resultType="Vulner">
+		select * from vulner
+
+	</select>
+	
+	<select id="getdingBs" resultType="Vulner">
+		select * from vulner
+
+	</select>
+
+    <select id="getBasById" resultType="Basic">
+		select id,real_name,ip,system,server,softver from basic
+		where id=#{id}
+
+	</select>
+	
+	<select id="getBasvulById" resultType="string">
+		select vul_id from basic
+		where id=#{id}
+
+	</select>
+	
+	<insert id="addBasic" parameterType="Basic" keyProperty="id" useGeneratedKeys="true">
+
+		insert into
+		basic(real_name,ip,system,server,softver,vul_id)
+		values(#{realName},#{ip},#{system},#{server},#{softver},#{vulner})
+	</insert>
+	
+	<insert id="addvulner" parameterType="Vulner">
+
+		insert into
+		vulner(name)
+		values(#{name})
+	</insert>
+	
+	<insert id="addvuls">
+
+		insert into
+		vulnerability(name,sort,degree,suggest,bas_id)
+		values
+		<foreach collection="vuls" item="vul" separator=",">
+		
+		(#{vul.name},#{vul.sort},#{vul.degree},#{vul.suggest},#{vul.basiid})
+		
+		</foreach>
+	</insert>
+
+
+	<update id="updateBas">
+
+		update basic set
+		real_name=#{realName},ip=#{ip},system=#{system},server=#{server},softver=#{softver}
+		where id=#{id}
+
+	</update>
+	
+	<delete id="deleteBasById">
+	delete from basic where id=#{id}
+	
+	</delete>
+</mapper>

@@ -1,0 +1,128 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'tsindex.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+<script language="JavaScript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" language="JavaScript">
+	//将表单序列化成json格式的数据(但不适用于含有控件的表单，例如复选框、多选的select)
+	(function($) {
+		$.fn.serializeJson = function() {
+			var jsonData1 = {};
+			var serializeArray = this.serializeArray();
+			// 先转换成{"id": ["12","14"], "name": ["aaa","bbb"], "pwd":["pwd1","pwd2"]}这种形式
+			$(serializeArray).each(
+					function() {
+						if (jsonData1[this.name]) {
+							if ($.isArray(jsonData1[this.name])) {
+								jsonData1[this.name].push(this.value);
+							} else {
+								jsonData1[this.name] = [ jsonData1[this.name],
+										this.value ];
+							}
+						} else {
+							jsonData1[this.name] = this.value;
+						}
+					});
+			// 再转成[{"id": "12", "name": "aaa", "pwd":"pwd1"},{"id": "14", "name": "bb", "pwd":"pwd2"}]的形式
+			var vCount = 0;
+			// 计算json内部的数组最大长度
+			for ( var item in jsonData1) {
+				var tmp = $.isArray(jsonData1[item]) ? jsonData1[item].length
+						: 1;
+				vCount = (tmp > vCount) ? tmp : vCount;
+			}
+
+			if (vCount > 1) {
+				var jsonData2 = new Array();
+				for (var i = 0; i < vCount; i++) {
+					var jsonObj = {};
+					for ( var item in jsonData1) {
+						jsonObj[item] = jsonData1[item][i];
+					}
+					jsonData2.push(jsonObj);
+				}
+				return JSON.stringify(jsonData2);
+			} else {
+				return "[" + JSON.stringify(jsonData1) + "]";
+			}
+		};
+	})(jQuery);
+
+	function submitUserList_4() {
+		var jsonStr = $("#form1").serializeJson();
+		//console.log("jsonStr:\r\n" + jsonStr);
+		//alert(jsonStr);
+		$.ajax({
+			url : "addvull",
+			type : "POST",
+			contentType : 'application/json;charset=utf-8', //设置请求头信息
+			dataType : "json",
+			data : jsonStr,
+			success : function(data) {
+				alert(data);
+				  window.location.href="index.jsp";
+				  alert("555");
+			},
+			error : function(res) {
+				alert(res.responseText);
+			}
+		});
+	}
+</script>
+
+</head>
+
+<body>
+	<center>
+
+		<form id="form1">
+			<c:forEach var="vu" items="${vu }">
+
+				<input type="text" name="name" value="${vu }" readonly="true" />
+				<br />
+				<input type="text" name="sort" placeholder="所属类别" />
+				<br />
+				<input type="text" name="degree" placeholder="危害程度" />
+				<br />
+				<input type="text" name="suggest" placeholder="解决建议" />
+				<br />
+				<input type="text" name="basiid" value="${id }" readonly="true" />
+				<br />
+				<br />
+				<br />
+				<br />
+			</c:forEach>
+
+			<input type="button" value="submit" onclick="submitUserList_4();">
+
+		</form>
+
+
+
+
+
+
+
+	</center>
+</body>
+</html>

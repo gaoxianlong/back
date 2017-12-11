@@ -1,0 +1,67 @@
+package com.jcxa.safe.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jcxa.safe.dao.BasicDao;
+import com.jcxa.safe.entity.Basic;
+import com.jcxa.safe.entity.Vulner;
+import com.jcxa.safe.entity.vulnerability;
+
+@Service
+public class BasicService {
+
+	@Autowired
+	private BasicDao basicDao;
+
+	public List<Basic> getBasic() {
+
+		return basicDao.getBasic();
+
+	}
+	public List<Vulner> getVulner() {
+
+		return basicDao.getVulner();
+
+	}
+
+	public Basic getBasById(Integer id) {
+
+		return basicDao.getBasById(id);
+	}
+	
+	public String getBasvulById(Integer id) {
+
+		return basicDao.getBasvulById(id);
+	}
+
+	public void addBasic(Basic basic) {
+
+		basicDao.addBasic(basic);
+	}
+	
+	public void addvuls(List<vulnerability> vuls) {
+
+		basicDao.addvuls(vuls);
+	}
+	
+	//TEST
+	
+	public void addVUL(Vulner vulner) {
+
+		basicDao.addvulner(vulner);
+	}
+	
+	public void updateBas(Basic basic) {
+
+		basicDao.updateBas(basic);
+	}
+    
+	public void deleteBasById(Integer id) {
+
+		basicDao.deleteBasById(id);
+	}
+
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.stk.dao.BackVideoDao">
+<!-- mp3 -->
+	<select id="getvideomp" resultType="Seriesvideo">
+		select * from mpseriesvideo where SID=#{ID} order by ID asc
+	</select>
+	
+	<insert id="addaccountvideomp" parameterType="Seriesvideo">
+		insert into
+		mpseriesvideo(SID,Title,VideoURL,IsPrice,Sort,CreateTime,des)
+		values(#{SID},#{Title},#{VideoURL},#{IsPrice},#{Sort},#{CreateTime},#{des})
+	</insert> 
+	
+	<update id="upvideomp" parameterType="Seriesvideo">
+		update mpseriesvideo set ClickRate=#{ClickRate},ZanCts=#{ZanCts},
+		Title=#{Title},VideoURL=#{VideoURL},
+		IsPrice=#{IsPrice},
+		Sort=#{Sort},des=#{des}
+		where ID=#{ID}
+	</update>
+	
+	<delete id="deletevideomp" parameterType="java.lang.Integer">
+		delete from mpseriesvideo where ID=#{id}
+	</delete>
+<!-- mp3 -->
+	<select id="getvideo" resultType="Seriesvideo">
+		select * from seriesvideo where SID=#{ID} order by ID asc
+	</select>
+
+	<insert id="addaccountvideo" parameterType="Seriesvideo">
+		insert into
+		seriesvideo(SID,Title,VideoURL,IsPrice,Sort,CreateTime)
+		values(#{SID},#{Title},#{VideoURL},#{IsPrice},#{Sort},#{CreateTime})	
+	</insert> 
+	
+	<update id="upvideo" parameterType="Seriesvideo">
+		update seriesvideo set ClickRate=#{ClickRate},ZanCts=#{ZanCts},
+		Title=#{Title},VideoURL=#{VideoURL},
+		IsPrice=#{IsPrice},
+		Sort=#{Sort}
+		where ID=#{ID}
+	</update>
+	
+	<delete id="deletevideo" parameterType="java.lang.Integer">
+		delete from seriesvideo where ID=#{id}
+	</delete>
+	
+	<update id="upprogress" parameterType="java.lang.String">
+		update upload set uplo=#{uplo} where id=1
+	</update>
+	
+	<select id="selprogress" resultType="java.lang.String">
+		select uplo from upload where id=1
+	</select>
+</mapper>

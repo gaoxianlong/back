@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.stk.dao.BackUserDao">
+
+	<select id="selbackuser" resultType="Users">
+		select * from tuser order by
+		ID desc
+	</select>
+
+	<select id="selbackuserbycode" parameterType="java.lang.String" resultType="Users">
+		select * from tuser where HelpCode=#{HelpCode} order by
+		ID desc
+	</select>
+	
+	
+	<select id="seluserlik" resultType="Users" parameterType="java.lang.String">
+		select * from tuser where CONCAT(`NickName`, `Telephone`) LIKE "%"#{name}"%"
+
+	</select>
+	
+	<select id="selpro" resultType="java.lang.String">
+		select prolocutor from tuser where ID=#{id}
+	</select>
+	
+	<select id="selproopenid" resultType="java.lang.String">
+		select openid from prolocutor where prolocutor=#{prolocutor}
+	</select>
+	
+	<select id="selproopenidid" parameterType="java.util.List" resultType="java.lang.Integer">
+        SELECT ID FROM twxuser
+        WHERE openid IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <select id="selprouser" parameterType="java.util.List" resultType="Users">
+        SELECT * FROM tuser
+        WHERE WXopendID IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <select id="playvid" resultType="java.lang.Integer">
+		select vid from playrecord where uid=#{uid}
+	</select>
+	
+	<select id="playsid" parameterType="java.util.List" resultType="java.lang.Integer">
+        SELECT SID FROM seriesvideo
+        WHERE ID IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <select id="series" parameterType="java.util.List" resultType="Series">
+        SELECT * FROM series
+        WHERE ID IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+    <!--  
+    <select id="getvideodetaa" parameterType="Integer" resultMap="VideoResultMap">
+         select * from playrecord p join seriesvideo s on p.vid=s.ID join series ser on s.SID=ser.ID and p.vid=#{id}
+     </select>
+    
+    <select id="getvideodetaa" parameterType="Integer" resultMap="VideoResultMaptwo">
+          select * from playrecord p join seriesvideo s on p.vid=s.ID join series ser on s.SID=ser.ID and p.vid=#{id}
+     </select>
+     <resultMap type="Playrecord" id="VideoResultMaptwo">
+         <id property="id" column="id"/>
+         <result property="uid" column="uid"/>
+         <result property="addtimes" column="addtimes"/>
+         <association property="seriesvideoidff" javaType="Seriesvideoff">
+             <id property="ID" column="ID"/>
+             <result property="Title" column="Title"/>
+             <association property="seriesid" javaType="Seriesff">
+             	<id property="ID" column="sid"/>
+             	<result property="Title" column="Title"/>
+            	<result property="PicURL" column="PicURL"/> 
+        	 </association>
+         </association>
+     </resultMap>
+     -->
+     
+     <select id="getvideodetaa" parameterType="Integer" resultMap="VideoResultMaptwo">
+          select * from playrecord p join seriesvideo s on p.vid=s.ID and p.uid=#{id}
+     </select>
+     <resultMap type="Playrecord" id="VideoResultMaptwo">
+         <id property="id" column="id"/>
+         <result property="uid" column="uid"/>
+         <result property="addtimes" column="addtimes"/>
+         <association property="seriesvideoidff" javaType="Seriesvideoff">
+             <id property="ID" column="ID"/>
+             <id property="SID" column="SID"/>
+             <result property="Title" column="Title"/>
+         </association>
+     </resultMap>
+</mapper>

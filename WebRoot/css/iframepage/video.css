@@ -1,0 +1,59 @@
+.panel-wrap{
+	width: 100%;
+	min-height: 100%;
+	
+}
+.panel-wrap .lis{
+	padding: 10px 0;
+	border-bottom: 1px dashed #ccc;
+}
+.panel-wrap .lis>span{
+	float: left;
+    width: 100px;
+    text-align: right;
+}
+.panel-wrap div input{
+	padding-left: 10px;
+}
+
+.kcfl select{
+	width: 200px;
+	height: 30px;
+}
+.kcfl select option{
+	border-bottom: 1px solid #ccc;
+}
+.panel-wrap .title{
+	width: 100%;
+}
+.panel-wrap .pic{
+	/*border: 1px solid #ccc;*/
+}
+.panel-wrap .pic div{
+	display: inline-block;
+	background: #f1f1f1;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
+.panel-wrap .imgs01{
+	width: 400px;
+	height: 322px;
+}
+
+.panel-wrap .imgs02{
+	width: 200px;
+	height: 322px;
+}
+.panel-wrap .imgs03{
+	width: 200px;
+	height: 124px;
+}
+.panel-wrap .imgs04{
+	width: 128px;
+	height: 80px;
+}
+.panel-wrap textarea{
+	width: 468px;
+	height: 30px;
+	resize: vertical;
+}

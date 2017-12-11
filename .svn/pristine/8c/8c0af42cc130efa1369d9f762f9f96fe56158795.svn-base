@@ -1,0 +1,183 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'index.jsp' starting page</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	
+	 <link rel="stylesheet"
+			href="<%=basePath%>kindeditor-4.1.10/themes/default/default.css" />
+		<link rel="stylesheet"
+			href="<%=basePath%>kindeditor-4.1.10/plugins/code/prettify.css" />
+		<script charset="utf-8"
+			src="<%=basePath%>kindeditor-4.1.10/kindeditor.js"></script>
+		<script charset="utf-8"
+			src="<%=basePath%>kindeditor-4.1.10/lang/zh_CN.js"></script>
+		<script charset="utf-8"
+			src="<%=basePath%>kindeditor-4.1.10/plugins/code/prettify.js"></script>
+		<script>
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('textarea[id="tx,i"]', {
+				cssPath : '<%=basePath%>kindeditor-4.1.10/plugins/code/prettify.css',
+				uploadJson : '<%=basePath%>kindeditor-4.1.10/jsp/upload_json.jsp',
+				fileManagerJson : '<%=basePath%>kindeditor-4.1.10/jsp/file_manager_json.jsp',
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						document.forms['f'].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						document.forms['f'].submit();
+					});
+				}
+			});
+			prettyPrint();
+		});
+	</script>
+	
+</head>
+
+<body>
+	<center>
+	
+	<a href="getvulner">完整添加</a>
+	<br/>
+		yuan/This is my JSP page. <br> <a href="getbasic">查询</a> <br /> <br />
+
+		<div style="border:1px solid red;">
+
+			<form action="addBasic" method="post">
+<table>
+
+<tr>
+<td>realName</td>
+<td> <textarea id="tx" name="realName" style="width: 200px; height: 10px; visibility: hidden;"></textarea></td>
+
+</tr>
+
+<tr>
+<td>ip</td>
+<td> <input type="text" name="ip" /></td>
+
+</tr>
+
+<tr>
+<td>system</td>
+<td><input type="text" name="system" /></td>
+
+</tr>
+
+<tr>
+<td>server</td>
+<td> <input type="text" name="server" /></td>
+
+</tr>
+
+<tr>
+<td>softver</td>
+<td><input type="text" name="softver" /></td>
+
+</tr>
+				     
+				  <tr>  
+					 <td>
+					
+				     <input type="submit" value="添加" /></td></tr>
+					
+					</table>
+			</form>
+		</div>
+
+
+
+		<div style="border:1px solid blue;">
+
+			<form action="updateBasic" method="post">
+			
+			
+			<table>
+			
+			<tr>
+			
+			<td></td>
+			<td><c:if test="${basic.id != null }">
+					<input type="hidden" name="id" value="${basic.id }" /> <br/>
+				</c:if></td>
+			</tr>
+			
+			<tr>
+			
+			<td>realName</td>
+			<td> <input type="text" name="realName"
+					value="${basic.realName }" disabled="disabled"/> 
+					</td>
+			</tr>
+			
+			<tr>
+			
+			<td>ip</td>
+			<td><input type="text" name="ip"
+					value="${basic.ip }" /></td>
+			</tr>
+			
+			<tr>
+			
+			<td>system</td>
+			<td> <input type="text"
+					name="system" value="${basic.system }" /></td>
+			</tr>
+			
+			<tr>
+			
+			<td>server</td>
+			<td><input
+					type="text" name="server" value="${basic.server }" /></td>
+			</tr>
+			
+			<tr>
+			
+			<td>softver</td>
+			<td>	<input type="text" name="softver" value="${basic.softver }" /></td>
+			</tr>
+			
+			<tr>
+			
+			<td></td>
+			<td><input type="submit" value="修改" /></td>
+			</tr>
+			
+				
+				
+				
+					  
+			
+				 
+				
+				
+				
+				</table>
+			</form>
+
+		</div>
+	</center>
+</body>
+</html>

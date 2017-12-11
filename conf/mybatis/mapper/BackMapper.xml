@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.stk.dao.BackDao">
+
+	<select id="login" resultType="Backuser">
+		select * from admin where
+		name=#{name} and passwd=#{passwd}
+	</select>
+
+	<resultMap type="Tixian" id="tix">
+		<id column="id" property="id"/>
+		<result column="money" property="money"/>
+		
+		<association property="users" javaType="Users">
+		<id column="uid" property="ID"/>
+		<result column="uname" property="name"/>
+		<result column="uname" property="name"/>
+		
+		</association>
+	</resultMap>
+<!-- 提现表 -->
+	<select id="seltixian" resultType="Tixian">
+		SELECT * FROM tixian t,tuser u WHERE t.uid=u.ID
+	</select>
+	
+	<select id="seltixianuser" resultType="Users">
+		SELECT *FROM tuser WHERE id=#{ID}	
+	</select>
+	
+	<select id="selwxopenid" resultType="java.lang.String">
+		SELECT openid FROM twxuser WHERE id=#{ID}
+	</select>
+	
+	<select id="selcode" resultType="Backcode">
+		select * from thelpcode order by
+		ID desc
+	</select>
+	<!-- <update id="updateUsers" parameterType="Users"> update t_users set 
+		nickName=#{nickName},realName=#{realName},sex=#{sex},birthday=#{birthday},city1=#{city1},city2=#{city2},city3=#{city3},school=#{school},grade=#{grade},education=#{education},teacher=#{teacher},preferential=#{preferential},sign=#{sign} 
+		where telephone=#{telephone} </update> -->
+
+	<insert id="addcode">
+		insert into
+		thelpcode(Schools,HelpCode,Num,CreateTime,quan,total)
+		values
+		(#{Schools},#{HelpCode},#{Num},#{CreateTime},#{quan},#{Num})
+	</insert>
+
+	<update id="updatecode" parameterType="Backcode">
+		update thelpcode set
+		Schools=#{Schools},Num=#{Num} where ID=#{ID}
+	</update>
+
+	<delete id="deletecode" parameterType="java.lang.Integer">
+		delete from thelpcode
+		where ID=#{id}
+	</delete>
+
+	<select id="selcodelik" resultType="Backcode" parameterType="java.lang.String">
+		select * from thelpcode where CONCAT(`Schools`, `HelpCode`) LIKE "%"
+		#{name}"%"
+
+	</select>
+
+
+	<select id="selcodetotal" resultType="java.lang.Integer">
+		SELECT SUM(total) FROM thelpcode
+
+	</select>
+	
+	<select id="selcodetotalfact" resultType="java.lang.Integer">
+		SELECT SUM(Num) FROM thelpcode
+
+	</select>
+	
+	
+	<select id="selusercode" resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT count(*) FROM tuser WHERE HelpCode = #{code}
+
+	</select>
+	
+	<select id="selcodenot" resultType="Backcode" parameterType="java.lang.Integer">
+		select * from thelpcode where ID=#{ID} order by
+		ID desc
+	</select>
+	
+	
+	<select id="selectList" parameterType="java.util.List" resultType="Backcode">
+        SELECT * FROM thelpcode
+        WHERE ID IN
+        <foreach collection="ls" index="index" item="item"
+            open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    
+</mapper>

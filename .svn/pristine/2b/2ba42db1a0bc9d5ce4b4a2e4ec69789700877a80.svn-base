@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.jcxa.safe.dao.BasicDao">
+
+
+	<select id="getBasic" resultType="Basic">
+		select * from basic
+
+	</select>
+
+    <select id="getBasById" resultType="Basic">
+		select id,real_name,ip,system,server,softver from basic
+		where id=#{id}
+
+	</select>
+	
+	<insert id="addBasic" parameterType="Basic">
+
+		insert into
+		basic(real_name,ip,system,server,softver)
+		values(#{realName},#{ip},#{system},#{server},#{softver})
+	</insert>
+
+
+	<update id="updateBas">
+
+		update basic set
+		real_name=#{realName},ip=#{ip},system=#{system},server=#{server},softver=#{softver}
+		where id=#{id}
+
+	</update>
+	
+	<delete id="deleteBasById">
+	delete from basic where id=#{id}
+	
+	</delete>
+</mapper>

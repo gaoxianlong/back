@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和定义的Mapper接口对应，并实现其中的方法 -->
+<mapper namespace="com.stk.dao.SelTypeDao">
+<!-- MP3 -->
+<!-- select ID,TypeName,ParentID,Sort,Identify from type -->
+	<select id="getMulvermp" resultType="Type">
+		select * from mptype where ParentID=#{id} order by layered asc
+	</select>
+
+	<select id="getMulvsanmp" resultType="Type">
+		select * from mptype where ParentID=#{id}
+	</select>
+<!-- MP3 -->
+
+   <select id="upgetMulvyi" resultType="Type">
+		select * from type where
+		ID=#{id}
+	</select>
+
+	<select id="getMulvyi" resultType="Type">
+		select * from type where 
+		ParentID=#{id} order by layered asc
+	</select>
+	
+	<!-- select ID,TypeName,ParentID,Sort,Identify from type -->
+	<select id="getMulver" resultType="Type">
+		select * from type where ParentID=#{id}
+	</select>
+	
+	<select id="getMulverxiugai" resultType="Type">
+		select * from type where ID=#{id}
+	</select>
+	
+	<select id="getMulvsan" resultType="Type">
+		select * from type where ParentID=#{id}
+	</select>
+</mapper>

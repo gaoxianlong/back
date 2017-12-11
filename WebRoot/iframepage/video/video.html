@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>列表</title>
+<meta http-equiv="content-type" content="text/htm" charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta mame="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="keywords" content="shoutike" />
+<meta name="description" content="shoutike" />
+<link rel="stylesheet" type="text/css" href="../../content/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../../css/iframepage/public.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/iframepage/video.css"/>
+</head>
+<body>
+<div style="padding: 5px 5px 0 5px;width: 100%;height: 100%;">
+	<div class="first-head">
+		<!--<a href="javascript:;" id="add"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 新增</a>-->
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myaddModal"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 
+   新增
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytxtModal"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 
+   编辑
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myxqModal"><span class="glyphicon glyphicon-list-alt"  style="color: #333;"></span> 
+   详情
+</button>
+		<div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mydelModal"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 
+   删除
+</button>
+		<div class="bar"></div>
+		<a href="javascript:;" class="gl-btn"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 
+   管理视频
+</a>
+        <div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mychModal" id="video-gl"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 
+   修改收藏数
+</button>
+        <div class="bar"></div>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mypayModal" id="video-gl"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 
+   修改购买数
+</button>
+	</div>
+	<div class="first-main">
+		<div class="first-body">
+			<table width="100%" cellspacing="" cellpadding="" border="0" id="tab">
+			    <thead>
+			        <tr>
+			            <th><div>编号</div></th>
+			            <th><div>分类</div></th>
+			            <th><div>标题</div></th>
+			            <th><div>图片地址</div></th>
+			            <th><div>视频时长</div></th>
+			            <th><div>发布时间</div></th>
+			            <th><div>讲师</div></th>
+			            <th><div>视频数</div></th>
+			            <th><div>收藏数</div></th>
+			            <th><div>播放数</div></th>
+			            <th><div>购买数</div></th>
+			            <th><div>有效性</div></th>
+			            <th><div>是否收费</div></th>
+			            <th><div>观看周期</div></th>
+			            <th><div>价格</div></th>
+			            <th><div>是否打折</div></th>
+			            <th><div>折后价格</div></th>
+			            <th><div>最后修改时间</div></th>
+			            <th><div>最后修改人</div></th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    	<tr style="height: 65px">
+			    		<td><div>1</div></td>
+			    		<td><div>初中-初一-语文</div></td>
+			    		<td><div>功夫语文第一季</div></td>
+			    		<td>
+			    			<div>
+			    			    <img src="" style="height: 60px"/>
+			    		    </div>
+			    		</td>
+			    		<td>
+			    			<div>12:20</div>
+			    		</td>
+			    		<td><div>2017-08-15 12:33:11</div></td>
+			    		<td><div>王薇薇</div></td>
+			    		<td><div>4</div></td>
+			    		<td><div>22</div></td>
+			    		<td><div>1114</div></td>
+			    		<td><div>0</div></td>
+			    		<td><div>永久有效</div></td>
+			    		<td><div>不收费</div></td>
+			    		<td><div>无限期</div></td>
+			    		<td><div>0</div></td>
+			    		<td><div>不打折</div></td>
+			    		<td><div>0</div></td>
+			    		<td><div>2017-08-31 20:3040</div></td>
+			    		<td><div>手提课</div></td>
+			    		
+			    	</tr>
+			    	<tr style="height: 65px">
+			    		<td><div>2</div></td>
+			    		<td><div>初中-初一-语文</div></td>
+			    		<td><div>功夫语文第一季</div></td>
+			    		<td>
+			    			<div>
+			    			    <img src=""style="height: 60px"/>
+			    		    </div>
+			    		</td>
+			    		<td>
+			    			<div>12:20</div>
+			    		</td>
+			    		<td><div>2017-08-15 12:33:11</div></td>
+			    		<td><div>王薇薇</div></td>
+			    		<td><div>4</div></td>
+			    		<td><div>22</div></td>
+			    		<td><div>1114</div></td>
+			    		<td><div>0</div></td>
+			    		<td><div>永久有效</div></td>
+			    		<td><div>不收费</div></td>
+			    		<td><div>无限期</div></td>
+			    		<td><div>0</div></td>
+			    		<td><div>不打折</div></td>
+			    		<td><div>0</div></td>
+			    		<td><div>2017-08-31 20:3040</div></td>
+			    		<td><div>手提课</div></td>
+			    	</tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- addModal -->
+<div class="modal fade" id="myaddModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-plus"  style="color: green;"></span> 新增</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+					<div class="lis kcfl">
+						<span>分类：</span>
+						<select name="">
+							<option value="分类" disabled="disabled">分类</option>
+							<option value="初一" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初一</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							<option value="初二" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初二</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							<option value="初三" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初三</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							
+						</select>
+						
+					</div>
+					
+                    <div class="lis title">
+                   	    <span>标题：</span><input type="text" name="" id="" value="" />
+                    </div>
+                    <div class="lis img">
+                    	<span>400px*322px</span>
+                    	<div class="pic">
+                    		<div class="imgs01">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                    	</div>
+                    </div>
+                    <div class="lis">
+                    	<span>200px*322px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs02">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                   	</div>
+                    <div class="lis">  
+                    	<span>200px*124px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs03">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                   	</div>
+                    <div class="lis">  
+                    	<span>128px*80px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs04">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                    </div>
+                    <div class="lis js">
+                    	<span>讲师：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis spms">
+                   	    <span>视频描述：</span>
+                   	    <textarea name="" rows="" cols=""></textarea>
+                    </div>
+                    <div class="lis yxx">
+                    	<span>有效性：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfsf">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis yxq">
+                    	<span>购买有效期：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis pay">
+                    	<span>价格：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis sfdz">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis fpzt">
+                    	<span>扶贫专题：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis zhjq">
+                    	<span>价格：</span>
+                    	<input type="text" />
+                    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 编辑Modal -->
+<div class="modal fade" id="mytxtModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 
+   编辑</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+					<div class="lis kcfl">
+						<span>分类：</span>
+						<select name="">
+							<option value="分类" disabled="disabled">分类</option>
+							<option value="初一" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初一</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							<option value="初二" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初二</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							<option value="初三" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初三</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							
+						</select>
+						
+					</div>
+					
+                    <div class="lis title">
+                   	    <span>标题：</span><input type="text" name="" id="" value="" />
+                    </div>
+                    <div class="lis img">
+                    	<span>400px*322px</span>
+                    	<div class="pic">
+                    		<div class="imgs01">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                    	</div>
+                    </div>
+                    <div class="lis">
+                    	<span>200px*322px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs02">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                   	</div>
+                    <div class="lis">  
+                    	<span>200px*124px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs03">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                   	</div>
+                    <div class="lis">  
+                    	<span>128px*80px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs04">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                    </div>
+                    <div class="lis js">
+                    	<span>讲师：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis spms">
+                   	    <span>视频描述：</span>
+                   	    <textarea name="" rows="" cols=""></textarea>
+                    </div>
+                    <div class="lis yxx">
+                    	<span>有效性：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfsf">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis yxq">
+                    	<span>购买有效期：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis pay">
+                    	<span>价格：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis sfdz">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis fpzt">
+                    	<span>扶贫专题：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis zhjq">
+                    	<span>价格：</span>
+                    	<input type="text" />
+                    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- 详情Modal -->
+<div class="modal fade" id="myxqModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-list-alt"  style="color: #333;"></span> 详情</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+                   <div class="lis kcfl">
+						<span>分类：</span>
+						<select name="">
+							<option value="分类" disabled="disabled">分类</option>
+							<option value="初一" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初一</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							<option value="初二" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初二</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							<option value="初三" disabled="disabled" style="font-size: 16px;font-weight: 700;color: royalblue;">初三</option>
+							<option value="语文"><span class="glyphicon glyphicon-list"></span> 语文</option>
+							<option value="数学"><span class="glyphicon glyphicon-list"></span> 数学</option>
+							<option value="外语"><span class="glyphicon glyphicon-list"></span> 外语</option>
+							
+						</select>
+						
+					</div>
+					
+                    <div class="lis title">
+                   	    <span>标题：</span><input type="text" name="" id="" value="" />
+                    </div>
+                    <div class="lis img">
+                    	<span>400px*322px</span>
+                    	<div class="pic">
+                    		<div class="imgs01">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                    	</div>
+                    </div>
+                    <div class="lis">
+                    	<span>200px*322px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs02">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                   	</div>
+                    <div class="lis">  
+                    	<span>200px*124px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs03">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                   	</div>
+                    <div class="lis">  
+                    	<span>128px*80px</span>
+                   	    <div class="pic">
+                   	    	<div class="imgs04">
+	                   	   	   <img src=""/>
+	                   	    </div>
+	                   	    
+	                   	    <input type="file" name="" id="" value="" />
+                   	    </div>
+                    </div>
+                    <div class="lis js">
+                    	<span>讲师：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis spms">
+                   	    <span>视频描述：</span>
+                   	    <textarea name="" rows="" cols=""></textarea>
+                    </div>
+                    <div class="lis yxx">
+                    	<span>有效性：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis sfsf">
+                    	<span>是否收费：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis yxq">
+                    	<span>购买有效期：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis pay">
+                    	<span>价格：</span>
+                    	<input type="text" />
+                    </div>
+                    <div class="lis sfdz">
+                    	<span>是否打折：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis fpzt">
+                    	<span>扶贫专题：</span><input type="checkbox" name="" id="" value="" />
+                    </div>
+                    <div class="lis zhjq">
+                    	<span>价格：</span>
+                    	<input type="text" />
+                    </div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 删除Modal -->
+<div class="modal fade" id="mydelModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-remove"  style="color: #ff0000;"></span> 删除</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+                    
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--修改收藏数-->
+<div class="modal fade" id="mychModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span> 修改</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+					<div class="lis title">
+                    	<span>标题：</span>
+                    	<b>初中语文。。。</b>
+                    </div>
+                    <div class="lis chs">
+                    	<span>收藏数：</span>
+                    	<input type="text" />
+                    </div>
+                    
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 修改购买数 -->
+<div class="modal fade" id="mypayModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-pencil"  style="color: #666;"></span>修改</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel-wrap">
+					<div class="lis title">
+	                	<span>标题：</span>
+	                	<b>初二数学。。。</b>
+	                </div>
+	                <div class="lis chs">
+	                	<span>购买数：</span>
+	                	<input type="text" />
+	                </div>
+				</div>
+				
+                    
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../../jscript/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="../../jscript/bootstrap.min.js" ></script>
+<script type="text/javascript" src="../../js/iframepage/public.js"></script>
+<script type="text/javascript" src="../../js/iframepage/video.js"></script>

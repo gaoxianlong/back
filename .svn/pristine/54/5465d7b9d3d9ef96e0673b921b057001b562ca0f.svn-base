@@ -1,0 +1,148 @@
+package com.jcxa.safe.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.jcxa.safe.entity.Basic;
+import com.jcxa.safe.entity.Vulner;
+import com.jcxa.safe.entity.vulnerability;
+import com.jcxa.safe.service.BasicService;
+
+@Controller
+public class SafeController {
+
+	@Autowired
+	private BasicService basicService;
+	
+//	@InitBinder("basic")
+//    public void initBinderFormBean1(WebDataBinder binder) {  
+//        binder.setFieldDefaultPrefix("basic.");  
+//    }
+//    @InitBinder("vulner")
+//    public void initBinderFormBean2(WebDataBinder binder) {  
+//        binder.setFieldDefaultPrefix("vulner.");  
+//    }
+	
+	
+	@RequestMapping("/getvulner")
+	public String getVulner(Map<String,Object> map){
+		
+		
+		map.put("vulner",basicService.getVulner());
+		
+	
+		return "Test.jsp";
+		
+	}
+	
+	@RequestMapping("/addBasicw")
+	public String test(Basic basic,Map<String,Object> map){
+		
+		
+		
+		basicService.addBasic(basic);
+		
+		int id=basic.getId();
+		String vul=basicService.getBasvulById(id);
+		if(vul != null){
+		String[] vu=vul.split(",");
+		int vulen=vu.length;
+		map.put("id", id);
+		map.put("vulen", vulen);
+		map.put("vu", vu);
+		//map.put("vule", vul);
+		}
+		return "page/tsindex.jsp";
+		
+	}
+	//addvul
+	
+	@RequestMapping("/addvul")
+	public String addvul(String[] name, String[] sort,String[] degree, String[] suggest,Integer[] basiid, Map<String,Object> map){
+		
+		
+		
+      
+        List<vulnerability> vuls = new ArrayList<vulnerability>();
+        for (int i = 0; i < basiid.length; i++ ) {
+        	vulnerability vul = new vulnerability();
+            
+            vul.setName(sort[i]);
+            vul.setSort(sort[i]);
+            vul.setDegree(degree[i]);
+            vul.setSuggest(suggest[i]);
+            vul.setBasiid(basiid[i]);
+            
+            vuls.add(vul);
+        }
+    
+        basicService.addvuls(vuls);
+		map.put("vul", vuls);
+		return "page/addvulindex.jsp";
+		
+	}
+	
+	
+	@RequestMapping("/getbasic")
+	public String basic(Map<String,Object> map){
+		
+		List<Basic> basic = basicService.getBasic();
+		map.put("basic", basic);
+		return "page/index.jsp";
+		
+	}
+	
+	
+	@RequestMapping("/addBasic")
+	public String addBasic(Basic basic){
+		
+		
+		basicService.addBasic(basic);
+		return "redirect:/getbasic";
+		
+	}
+	
+	@RequestMapping(value="/getBasById/{id}")
+	public String getBasById(@PathVariable("id") Integer id, Map<String,Object> map){
+		
+		Basic basic = basicService.getBasById(id);
+		map.put("basic", basic);
+		return "/index.jsp";
+		
+	}
+	
+	@RequestMapping(value="/updateBasic")
+	public String updateBas(Basic basic){
+		
+		basicService.updateBas(basic);
+	
+		return "redirect:/getbasic";
+		
+	}
+	
+	@ModelAttribute
+	public void getBasic(@RequestParam(value="id",required=false) Integer id,Map<String,Object> map){
+		if(id!=null){
+			map.put("basic", basicService.getBasById(id));
+		}
+	}
+	
+	@RequestMapping(value="/deleteBasById/{id}")
+	public String deleteBasById(@PathVariable("id") Integer id){
+		
+		basicService.deleteBasById(id);
+		
+		return "redirect:/getbasic";
+		
+	}
+}

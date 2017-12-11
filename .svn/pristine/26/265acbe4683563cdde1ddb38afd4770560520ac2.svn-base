@@ -1,0 +1,43 @@
+package com.jcxa.safe.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jcxa.safe.dao.BasicDao;
+import com.jcxa.safe.entity.Basic;
+
+@Service
+public class BasicService {
+
+	@Autowired
+	private BasicDao basicDao;
+
+	public List<Basic> getBasic() {
+
+		return basicDao.getBasic();
+
+	}
+
+	public Basic getBasById(Integer id) {
+
+		return basicDao.getBasById(id);
+	}
+
+	public void addBasic(Basic basic) {
+
+		basicDao.addBasic(basic);
+	}
+	
+	public void updateBas(Basic basic) {
+
+		basicDao.updateBas(basic);
+	}
+    
+	public void deleteBasById(Integer id) {
+
+		basicDao.deleteBasById(id);
+	}
+
+}
