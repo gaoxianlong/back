@@ -156,6 +156,7 @@ $('#mytxtModal').on('show.bs.modal', function(e) {
 	pr=pr.replace("http://www.shoutike.com/STK/cover/", "");
 	
 	var  thd=$('tbody .active').children().eq(17).children().children().attr('src');
+	//alert(thd);
 	thd=thd.replace("http://www.shoutike.com/STK/cover/", "");	
 	
 $('tbody .active').children().each(function(){
@@ -217,7 +218,7 @@ $('tbody .active').children().each(function(){
 		            }              
 		        });  
 		    }  
-		      
+		  
 		    $("#uploadtxxd").click(function(){  
 		    	
 		        ajaxFileUplotxd();  
@@ -295,7 +296,8 @@ $('tbody .active').children().each(function(){
 		
 		
 		`);
-		$('#txxPicURL').val(pr);
+		  $('#txxPicURL').val(pr);
+		  $('#txxThuPicURL').val(thd);
 		$("#xiugaibto").html(`
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 				<button type="button" class="btn btn-primary" onclick="xqtxx()">修改</button>

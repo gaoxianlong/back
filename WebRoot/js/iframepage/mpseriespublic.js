@@ -22,6 +22,7 @@ $('#adsave').click(function(){
 		var  Type3Value=$("#ddl").find("option:selected").attr("thirdid");
 		var  Title=$("#adTitle").val();
 		var  PicURL=$("#adPicURL").val();
+		var  bg=$("#adPicURLbg").val();
 		var  Remark=$("#adremark").val();
 		//var  IsPrice=$("input[name='adIsPrice']:checked").val(); 
 		//var  fupin=$("input[name='adfupin']:checked").val();
@@ -54,6 +55,7 @@ $('#adsave').click(function(){
 				"tc" : tc,
 				"Title" : Title,
 				"PicURL" : PicURL,
+				"bg" : bg,
 				"Remark" : Remark,
 				"IsPrice" : 1,
 				"fupin" : 0,
@@ -83,6 +85,9 @@ function xqtxx() {
 	var  txid=$("#txid").val();
 	var  Title=$("#Title").val();
 	var  PicURL=$("#txxPicURL").val();
+	var  bg=$("#txxThuPicURL").val();
+	
+	
 	var  Remark=$("#Remark").val();
 	var  IsPrice=$("input[name='IsPrice']:checked").val(); 
 	var  fupin=$("input[name='fupin']:checked").val();
@@ -110,9 +115,10 @@ function xqtxx() {
 			"ID"    :txid,
 			"Title" : Title,
 			"PicURL" : PicURL,
+			"bg" : bg,
 			"Remark" : Remark,
 			"IsPrice" : 1,
-			"fupin" : 0,
+			"fupin" : fupin,
 			"publi" : 1,
 			"RealPrice" : priic,
 			"Collection" :Collection,
@@ -166,11 +172,10 @@ $('#mytxtModal').on('show.bs.modal', function(e) {
 	
 
 	var  pr=$('tbody .active').children().eq(3).children().children().attr('src');
-	pr=pr.replace("http://localhost:8080/STK/cover/", "");
+	pr=pr.replace("http://www.shoutike.com/STK/cover/", "");
 	
 	var  bgt=$('tbody .active').children().eq(18).children().children().attr('src');
-	//bgt=bgt.replace("http://localhost:8080/STK/cover/", "");
-	//alert(bgt)
+	bgt=bgt.replace("http://www.shoutike.com/STK/cover/", "");
 $('tbody .active').children().each(function(){
 		
 		console.log($('tbody .active').children().eq(0).children().html());
@@ -188,23 +193,29 @@ $('tbody .active').children().each(function(){
 		
 		
 		<div class="lis img">
-			
 			<div class="pic">
 				<div class="imgs01">
 					<img src="`+$('tbody .active').children().eq(3).children().children().attr('src')+`" />
-				</div>
-				
+				</div>	
 			</div>
-			
 		</div>
 		
+	<div style="padding-left:25px;">
 		<div>
-		<input type="text"  name="txxPicURL" id="txxPicURL" value=""+pr+""/>
-		<input type="file" id="fileuploadtxx"/>  
-		<input type="button" value="上传图片" id="uploadtxxd"/>
-		
+		<span>图片</pan>	<input type="text" name="txxPicURL" id="txxPicURL" value="" />
+			<div style="padding-left:30px;">
+				<input type="file" id="fileuploadtxx"/>  
+				<input type="button" value="上传图片" id="uploadtxxd"/>
+			</div>
 		</div>
-		
+		<div>
+		<span>图片</pan><input type="text" name="txxThuPicURL" id="txxThuPicURL" value="" />
+			<div style="padding-left:30px;">
+				<input type="file" id="fileuploadtxxThuPicURL"/>  
+				<input type="button" value="上传图片" id="uploadtxxdThuPicURL"/>
+			</div>
+		</div>
+	</div>
 		
 		   <script type="text/javascript">  
 		    $(document).ready(function(){  
@@ -215,7 +226,7 @@ $('tbody .active').children().each(function(){
 		       
 		        $.ajax({  
 		            type:"post",  
-		            url:"  http://localhost:8080/STK/upload",  
+		            url:"  http://www.shoutike.com/STK/upload",  
 		            async:false,  
 		            contentType: false,    // 这个一定要写
 		            processData: false, // 这个也一定要写，不然会报错
@@ -235,13 +246,39 @@ $('tbody .active').children().each(function(){
 		    $("#uploadtxxd").click(function(){  
 		    	
 		        ajaxFileUplotxd();  
-		    });  
+		    });     
+		    
+		    function ajaxFileUplotxdThuPicURL(){  
+		        var formData = new FormData();  
+		        formData.append('file',$("#fileuploadtxxThuPicURL")[0].files[0]);    // 将文件转成二进制形式
+		       
+		        $.ajax({  
+		            type:"post",  
+		            url:"  http://www.shoutike.com/STK/upload",  
+		            async:false,  
+		            contentType: false,    // 这个一定要写
+		            processData: false, // 这个也一定要写，不然会报错
+		            data:formData,  
+		            dataType:'text',    // 返回类型，有json，text，HTML。这里并没有jsonp格式，所以别妄想能用jsonp做跨域了。
+		            
+		            success:function(data){  
+		            	alert(data)
+		            	$('#txxThuPicURL').val(data);
+		            },  
+		            error:function(XMLHttpRequest, textStatus, errorThrown, data){  
+		                alert(errorThrown);  
+		            }              
+		        });  
+		    }  
+		      
+		    $("#uploadtxxdThuPicURL").click(function(){  
+		    	
+		        ajaxFileUplotxdThuPicURL();  
+		    	});
 		     
 		    
 		 });
 		    
-		    
-		   
 		    </script>
 		
 		<div class="lis spms">
@@ -256,7 +293,7 @@ $('tbody .active').children().each(function(){
 		</div>
 		
 		<div class="lis sfsf">
-			<span>是否扶贫：</span>
+			<span>是否推荐：</span>
 			<input type="radio" value="0" name="fupin" id="fpa"/>否
 			<input type="radio" value="1" name="fupin"  id="fpb"/>是
 		</div>
@@ -284,11 +321,10 @@ $('tbody .active').children().each(function(){
 <span>作者：</span> <input type="text" value="`+$('tbody .active').children().eq(17).children().html()+`" name="wt" id="wt"/>
 </div>
 	</div>
-					
-		
-		
+						
 		`);
 		$('#txxPicURL').val(pr);
+		$('#txxThuPicURL').val(bgt);
 		$("#xiugaibto").html(`
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 				<button type="button" class="btn btn-primary" onclick="xqtxx()">修改</button>
@@ -377,11 +413,6 @@ function deleteco() {
 	});
 }
 
-
-
-
-
-
 $('#mydelModal').on('show.bs.modal', function(e) {
 	if(!$('tbody tr').hasClass('active')) {
 		alert('提示 请选择操作的内容！');
@@ -408,57 +439,3 @@ $("#deletebtoxq").html(`
 		`);
 	});
 });
-// 回复
-$('#myhfModal').on('show.bs.modal', function(e) {
-	if(!$('tbody tr').hasClass('active')) {
-		alert('提示 请选择操作的内容！');
-		return false;
-	}
-	else{
-		
-		
-	}
-});
-
-// 删除回复
-$('#mydelhfModal').on('show.bs.modal', function(e) {
-	if(!$('tbody tr').hasClass('active')) {
-		alert('提示 请选择操作的内容！');
-		return false;
-	}
-	else{
-		
-		
-	}
-});
-// 修改收藏数
-$('#mychModal').on('show.bs.modal', function(e) {
-	if(!$('tbody tr').hasClass('active')) {
-		alert('提示 请选择操作的内容！');
-		return false;
-	}
-	else{
-// alert('正常操作');
-	}	
-});
-// 修改购买数
-$('#mypayModal').on('show.bs.modal', function(e) {
-	if(!$('tbody tr').hasClass('active')) {
-		alert('提示 请选择操作的内容！');
-		return false;
-	}
-	else{
-// alert('正常操作');
-	}	
-});
-// 修改播放数
-$('#mybfModal').on('show.bs.modal', function(e) {
-	if(!$('tbody tr').hasClass('active')) {
-		alert('提示 请选择操作的内容！');
-		return false;
-	}
-	else{
-// alert('正常操作');
-	}	
-});
-

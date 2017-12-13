@@ -19,9 +19,11 @@
 <meta name="description" content="shoutike" />
 <link rel="stylesheet" type="text/css" href="<%=path%>/content/easyui.css" />
 <link rel="stylesheet" type="text/css" href="<%=path%>/content/icon.css">
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-	<script type="text/javascript" src="<%=path%>/jscript/jquery.easyui.min.js"></script>
+<!--  <script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.4.4.min.js"></script>-->
+	
+<script type="text/javascript" src="<%=path%>/jscript/jquery-2.0.3.js"></script>	
+<script type="text/javascript" src="<%=path%>/jscript/jquery.easyui.min.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="<%=path%>/content/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
@@ -127,13 +129,14 @@
 							<th><div>购买数</div></th>
 							<th><div>是否收费</div></th>
 							<th><div>价格</div></th>
-							<th><div>是否扶贫</div></th>
+							<th><div>是否推荐</div></th>
 							<th><div>是否公开</div></th>
 							<th><div>发布时间</div></th>
 							<th><div></div></th>
 							<th><div></div></th>
 							<th><div></div></th>
 							<th><div>作者</div></th>
+							<th><div>轮播图</div></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -144,7 +147,7 @@
 								<td><div>${bs.title }</div></td>
 								<td>
 									<div>
-										<img src="http://localhost:8080/STK/cover/${bs.picURL }"
+										<img src="http://www.shoutike.com/STK/cover/${bs.picURL }"
 											style="height: 60px;width:100px;" />
 									</div>
 								</td>
@@ -161,10 +164,10 @@
 								</c:if>
 								<td><div>${bs.realPrice }</div></td>
 								<c:if test="${bs.fupin == 0 }">
-									<td><div>未扶贫</div></td>
+									<td><div>未推荐</div></td>
 								</c:if>
 								<c:if test="${bs.fupin == 1 }">
-									<td><div>扶贫</div></td>
+									<td><div>推荐</div></td>
 								</c:if>
 
 								<c:if test="${bs.publi == 0 }">
@@ -184,8 +187,8 @@
 								<td><div style="display: none">${bs.publi }</div></td>
 								<td><div>${bs.writer }</div></td>
 								<td>
-									<div style="display: none">
-										<img src="http://localhost:8080/STK/cover/${bs.bg }"
+									<div style="">
+										<img src="http://www.shoutike.com/STK/cover/${bs.bg }"
 											style="height: 60px;width:100px;" />
 									</div>
 								</td>
@@ -286,12 +289,12 @@
 									type="file" id="file_upload" /> <input type="button"
 									value="上传图片" id="upload" />
 							</div>
-							<!-- 
+							
 							<div>
 								<input type="text" name="PicURLbg" id="adPicURLbg" /> <input
 									type="file" id="file_uploadbg" /> <input type="button"
 									value="上传图片" id="uploadbg" />
-							</div> -->
+							</div> 
 								<script type="text/javascript">
 									$(document)
 											.ready(
@@ -338,7 +341,7 @@
 								</script>
 
 
-<!--  
+  
 								<script type="text/javascript">
 									$(document)
 											.ready(
@@ -352,7 +355,7 @@
 															$
 																	.ajax({
 																		type : "post",
-																		url : "  http://localhost:8080/STK/upload",
+																		url : "  http://www.shoutike.com/STK/upload",
 																		async : false,
 																		contentType : false, //这个一定要写  
 																		processData : false, //这个也一定要写，不然会报错  
@@ -384,7 +387,7 @@
 													});
 								</script>
 								
--->
+
 
 							</div>
 						</div>

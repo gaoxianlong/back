@@ -83,12 +83,12 @@
             <param-value></param-value>  
         </init-param>  
         <!-- 在StatViewSerlvet输出的html页面中，有一个功能是Reset All，执行这个操作之后，会导致所有计数器清零，重新计数 -->  
-       <span style="white-space:pre"> </span><init-param>  
-            <span style="white-space:pre">    </span><param-name>resetEnable</param-name>  
-            <span style="white-space:pre">    </span><param-value>true</param-value>  
-        <span style="white-space:pre">    </span></init-param>  
-        <span style="white-space:pre">    </span><!--  用户名和密码 -->  
-        <span style="white-space:pre">    </span><init-param>  
+       <init-param>  
+            <param-name>resetEnable</param-name>  
+            <param-value>true</param-value>  
+        </init-param>  
+        <!--  用户名和密码 -->  
+        <init-param>  
             <param-name>loginUsername</param-name>  
             <param-value>druid</param-value>  
         </init-param>  

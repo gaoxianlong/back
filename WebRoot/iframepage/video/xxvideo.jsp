@@ -221,7 +221,7 @@
 								<td><div style="display: none">${bs.publi }</div></td>
 								<td>
 									<div>
-										<img src="http://localhost:8080/STK/cover/${bs.thuPicURL }"
+										<img src="http://www.shoutike.com/STK/cover/${bs.thuPicURL }"
 											style="height: 60px;width:100px;" />
 									</div>
 								</td>
@@ -408,7 +408,7 @@
 															$
 																	.ajax({
 																		type : "post",
-																		url : "  http://localhost:8080/STK/upload",
+																		url : "  http://www.shoutike.com/STK/upload",
 																		async : false,
 																		contentType : false, //这个一定要写  
 																		processData : false, //这个也一定要写，不然会报错  

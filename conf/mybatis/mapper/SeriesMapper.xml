@@ -9,17 +9,17 @@
 	<insert id="addseriesmp" parameterType="Series">
 		insert into
 		mpseries(TypeValue,Type2Value,Type3Value,Title,PicURL,Remark,
-		RealPrice,PublishTime,ta,tb,tc,writer,IsPrice,fupin,publi)
+		RealPrice,PublishTime,ta,tb,tc,writer,IsPrice,fupin,publi,bg)
 		values
 		(#{TypeValue},#{Type2Value},#{Type3Value},#{Title},#{PicURL},
-		#{Remark},#{RealPrice},#{PublishTime},#{ta},#{tb},#{tc},#{writer},#{IsPrice},#{fupin},#{publi})
+		#{Remark},#{RealPrice},#{PublishTime},#{ta},#{tb},#{tc},#{writer},#{IsPrice},#{fupin},#{publi},#{bg})
 	</insert>
 	
 	<update id="upseriesmp" parameterType="Seriesmp">
 		update mpseries set
 		Title=#{Title},PicURL=#{PicURL},Remark=#{Remark},
 		IsPrice=#{IsPrice},RealPrice=#{RealPrice},
-		fupin=#{fupin},publi=#{publi},Collection=#{Collection},ClickRate=#{ClickRate},PmtsTot=#{PmtsTot},writer=#{writer}
+		fupin=#{fupin},publi=#{publi},Collection=#{Collection},ClickRate=#{ClickRate},PmtsTot=#{PmtsTot},writer=#{writer},bg=#{bg}
 		where ID=#{ID}
 	</update>
 	
