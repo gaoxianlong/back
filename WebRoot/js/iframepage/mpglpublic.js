@@ -120,7 +120,9 @@ function xqtxxgl() {
 
 			if (msg.id == 1) {
 				alert("修改成功");
-				window.location.href=''+path+'/selvideomp?='+msg.sid+'&page='+bring;
+				//alert(msg.sid);
+				window.location.href=''+path+'/selvideomp?id='+msg.sid+'&page='+bring;
+				//window.location.href=''+path+'/selvideomp?id='+msg.sid;
 				
 			}
 			if (msg == fal) {

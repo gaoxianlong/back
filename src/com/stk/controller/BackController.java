@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -35,7 +37,7 @@ public class BackController {
 
 	@RequestMapping(value="/loginadmin")
 	@ResponseBody
-	public String loginadmin(Backuser back) {
+	public String loginadmin(Backuser back,HttpSession session) {
 		
 			String pass=MD5Util.getMD5String(back.getPasswd());
 			
@@ -44,7 +46,7 @@ public class BackController {
 			ba.setPasswd(pass);
 			if(backService.login(ba) !=null)
 			{
-			
+				session.setAttribute("username", ba.getName());
 				return "ok";
 			}else{
 				return "fal"; 
@@ -58,10 +60,16 @@ public class BackController {
 		
 			return "WEB-INF/index/index.html";
 	}
+	
+	/** 清除session 退出 */
+	@RequestMapping("/loginout")
+	public String loginSession(HttpSession session, HttpServletResponse response) {
+		session.invalidate();
+
+		return "/login.jsp";
+	}
 
 	//like
-	
-	
 	@RequestMapping(value = "/selbackcodelike")
 	public String selbackcodelike(Map<String, Object> map,@RequestParam(value="name") String name) {
 

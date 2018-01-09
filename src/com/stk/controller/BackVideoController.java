@@ -58,7 +58,8 @@ public class BackVideoController {
 			map.put("video", ls);
 			map.put("sid", id);
 		    map.put("disid", id);
-		     
+		    System.out.println(ls.size()+"55555555555555555555555555555555555555");
+		     System.out.println("66666666666666666666666666666666666666666666666");
 			return "/iframepage/video/gl/glmpvideo.jsp";
 	          
 		}

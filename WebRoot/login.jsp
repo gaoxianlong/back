@@ -92,7 +92,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 			success : function(msg) {
 				
 			if(msg=="ok"){
-			window.location.href="index.html";
+			window.location.href="<%=path%>/log";
 			}
 			if(msg=="fal"){
 			    alert("账号或者密码错误，请重新登录！");
